@@ -122,7 +122,6 @@ section {
 }
 
 #fab {
-  display: none;
   position: fixed;
   top: auto;
   right: 3em;
@@ -238,6 +237,10 @@ section.your-active-class .landing__container::before {
 section.your-active-class .landing__container::after {
   opacity: 1;
   animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Section Active Styles Keyframe Animations */

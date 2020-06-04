@@ -40,14 +40,14 @@ let timeoutID;
 document.addEventListener("scroll", (event) => {
   if (window.scrollY === 0) {
     if (timeoutID > 0) clearTimeout(timeoutID);
-    navbarList.style.height = "100%";
-    fab.style.display = "none";
+    if (navbarList.classList.contains("hidden")) navbarList.classList.remove("hidden");
+    if (!fab.classList.contains("hidden")) fab.classList.add("hidden");
   } else {
-    fab.style.display = "block";
-    navbarList.style.height = "100%";
+    if (fab.classList.contains("hidden")) fab.classList.remove("hidden");
+    if (navbarList.classList.contains("hidden")) navbarList.classList.remove("hidden");
     if (timeoutID > 0) clearTimeout(timeoutID);
     timeoutID = setTimeout(() => {
-      if (!navbarList.matches(":hover")) navbarList.style.height = "0";
+      if (!navbarList.matches(":hover")) navbarList.classList.add("hidden");
     }, 1000);
   }
 });
